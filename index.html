@@ -18,38 +18,34 @@
         <div class="container">
             <h2>My Projects</h2>
 
-            <!-- Project Slider -->
-            <div class="project-slider">
-                <div class="project-container">
-                    <!-- Project Cards -->
-                    <div class="project-card">
-                        <h3>FiveCardStud - Poker Hand Analyzer</h3>
-                        <p><strong>Description:</strong> A program that analyzes six poker hands from the game Five Card Stud and ranks them from strongest to weakest.</p>
-                        <p><strong>Languages Used:</strong> C++, C#, Java, Python, Fortran, Julia, Go, Perl, Rust, Lisp</p>
-                        <p><strong>Link to Repository:</strong> <a href="https://github.com/talmadgemorath/FiveCardStud" target="_blank">View on GitHub</a></p>
-                    </div>
+            <!-- Project Buttons -->
+            <div id="project-buttons">
+                <button onclick="showProject(0)">FiveCardStud</button>
+                <button onclick="showProject(1)">Another Project</button>
+                <!-- Add more buttons as needed -->
+            </div>
 
-                    <!-- Add more project cards as needed -->
-                    <div class="project-card">
-                        <h3>Another Project</h3>
-                        <p><strong>Description:</strong> Description of another project.</p>
-                        <p><strong>Languages Used:</strong> JavaScript, HTML, CSS</p>
-                        <p><strong>Link to Repository:</strong> <a href="https://github.com/example" target="_blank">View on GitHub</a></p>
-                    </div>
-
-                    <div class="project-card">
-                        <h3>Sample Project</h3>
-                        <p><strong>Description:</strong> Description of the sample project.</p>
-                        <p><strong>Languages Used:</strong> Python, Flask</p>
-                        <p><strong>Link to Repository:</strong> <a href="https://github.com/example" target="_blank">View on GitHub</a></p>
-                    </div>
-
+            <!-- Project Cards -->
+            <div id="project-cards" style="display: none;">
+                <!-- FiveCardStud Project Card -->
+                <div class="project-card">
+                    <h3>FiveCardStud - Poker Hand Analyzer</h3>
+                    <p><strong>Description:</strong> The card game poker has many variants. In this project, I developed a program that analyzes six poker hands from the game Five Card Stud. The goal is to rank the hands from the strongest to the weakest according to poker rules. The game has no draw phase, and ties are broken explicitly to determine a unique winner.</p>
+                    <p><strong>Languages Used:</strong> C++, C#, Java, Python, Fortran, Julia, Go, Perl, Rust, Lisp</p>
+                    <p><strong>Link to Repository:</strong> <a href="https://github.com/talmadgemorath/FiveCardStud" target="_blank">View on GitHub</a></p>
+                    <button onclick="goBack()">Back to Menu</button>
                 </div>
-                <!-- Navigation Buttons -->
-                <div class="nav-buttons">
-                    <button onclick="moveSlide(-1)">&#10094;</button>
-                    <button onclick="moveSlide(1)">&#10095;</button>
+
+                <!-- Another Project -->
+                <div class="project-card">
+                    <h3>Another Project</h3>
+                    <p><strong>Description:</strong> This is another project description...</p>
+                    <p><strong>Languages Used:</strong> JavaScript, HTML, CSS</p>
+                    <p><strong>Link to Repository:</strong> <a href="https://github.com/your-repo" target="_blank">View on GitHub</a></p>
+                    <button onclick="goBack()">Back to Menu</button>
                 </div>
+
+                <!-- Add more project cards as needed -->
             </div>
         </div>
     </section>
@@ -61,16 +57,24 @@
     </footer>
 
     <script>
-        let slideIndex = 0;
+        const projectCards = document.querySelectorAll('.project-card');
+        const projectButtons = document.getElementById('project-buttons');
+        const projectCardsContainer = document.getElementById('project-cards');
 
-        function moveSlide(n) {
-            const slides = document.querySelectorAll('.project-card');
-            slideIndex += n;
-            if (slideIndex >= slides.length) slideIndex = 0;
-            if (slideIndex < 0) slideIndex = slides.length - 1;
-            
-            const projectContainer = document.querySelector('.project-container');
-            projectContainer.style.transform = `translateX(${-slideIndex * 100}%)`;
+        // Show specific project
+        function showProject(index) {
+            // Hide the project buttons and show the selected project card
+            projectButtons.style.display = 'none';
+            projectCardsContainer.style.display = 'block';
+            projectCards.forEach((card, i) => {
+                card.style.display = i === index ? 'block' : 'none';
+            });
+        }
+
+        // Go back to the project buttons
+        function goBack() {
+            projectButtons.style.display = 'block';
+            projectCardsContainer.style.display = 'none';
         }
     </script>
 

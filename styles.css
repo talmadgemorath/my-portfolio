@@ -1,4 +1,3 @@
-/* General Reset */
 body {
     font-family: Arial, sans-serif;
     text-align: center;
@@ -25,27 +24,46 @@ p {
     padding: 2rem 0;
 }
 
-.project-slider {
-    position: relative;
-    margin-top: 2rem;
-    width: 100%;
-    overflow: hidden;
+#projects h2 {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
 }
 
-.project-container {
+/* Center the project buttons under the 'My Projects' heading */
+#project-buttons {
     display: flex;
-    transition: transform 0.3s ease-in-out;
+    justify-content: center; /* Center the buttons horizontally */
+    gap: 1rem; /* Space between buttons */
+    flex-wrap: wrap; /* Allow buttons to wrap if necessary */
 }
 
+#project-buttons button {
+    padding: 1rem;
+    background-color: #333;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1.2rem;
+    transition: background-color 0.3s;
+    width: 250px; /* Fixed width for buttons */
+}
+
+#project-buttons button:hover {
+    background-color: #555;
+}
+
+/* Project card styling */
 .project-card {
+    display: none; /* Initially hidden */
     background-color: #fff;
-    padding: 2rem;
+    padding: 1rem;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     text-align: center;
-    min-width: 300px;
-    margin: 0 1rem;
-    transition: transform 0.3s ease;
+    width: 300px;
+    height: auto;
+    margin: 1rem auto;
 }
 
 .project-card h3 {
@@ -54,67 +72,19 @@ p {
 
 .project-card p {
     font-size: 1rem;
+    margin-bottom: 1rem;
 }
 
 .project-card a {
-    color: #333;
     text-decoration: none;
+    color: #333;
     font-weight: bold;
 }
 
-.nav-buttons {
-    position: absolute;
-    top: 50%;
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    transform: translateY(-50%);
+.project-card a:hover {
+    color: #ff6347;
 }
 
-.nav-buttons button {
-    background-color: rgba(0, 0, 0, 0.5);
-    color: white;
-    border: none;
-    padding: 1rem;
-    cursor: pointer;
-    font-size: 2rem;
-    transition: background-color 0.3s ease;
-}
-
-.nav-buttons button:hover {
-    background-color: rgba(0, 0, 0, 0.8);
-}
-
-/* Media Queries for Mobile Devices */
-@media (max-width: 768px) {
-    .project-card {
-        min-width: 90%; /* Increase card width on smaller screens */
-        margin: 1rem 0;
-    }
-
-    .project-slider {
-        margin-top: 1rem;
-    }
-
-    h1 {
-        font-size: 2rem;
-    }
-
-    .nav-buttons button {
-        font-size: 1.5rem; /* Smaller buttons for mobile */
-    }
-}
-
-@media (max-width: 480px) {
-    h1 {
-        font-size: 1.5rem;
-    }
-
-    .project-card {
-        min-width: 100%; /* Full-width cards for very small screens */
-    }
-
-    .nav-buttons button {
-        font-size: 1.2rem;
-    }
-}
+/* Back to Menu button */
+.back-to-menu {
+    padding

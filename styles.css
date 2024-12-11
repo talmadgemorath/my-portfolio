@@ -1,3 +1,4 @@
+/* General Reset */
 body {
     font-family: Arial, sans-serif;
     text-align: center;
@@ -26,7 +27,6 @@ p {
 
 .project-slider {
     position: relative;
-    height: 400px;
     margin-top: 2rem;
 }
 
@@ -43,13 +43,11 @@ p {
 }
 
 .project-container {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-top: 50px;
 }
 
 .project-node {
@@ -70,6 +68,7 @@ p {
     text-align: center;
     width: 250px;
     height: 150px;
+    margin-bottom: 20px;
 }
 
 .project-card h3 {
@@ -92,4 +91,54 @@ footer {
     color: white;
     padding: 1rem;
     margin-top: 2rem;
+}
+
+/* Media Queries for Mobile Devices */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2rem; /* Smaller heading size for mobile */
+    }
+
+    p {
+        font-size: 1rem; /* Adjust paragraph size for better readability */
+    }
+
+    .project-slider {
+        height: auto; /* Remove fixed height for better adaptability */
+    }
+
+    .project-card {
+        width: 90%; /* Make cards take up more space on smaller screens */
+        margin-bottom: 10px;
+        height: auto; /* Allow height to adjust based on content */
+    }
+
+    .project-container {
+        flex-direction: column; /* Stack project nodes vertically on small screens */
+    }
+
+    .nucleus {
+        width: 120px;
+        height: 120px;
+    }
+
+    .project-node {
+        margin: 1rem 0; /* Reduce margin to fit content better */
+        transform: scale(1);
+    }
+}
+
+/* For extra small screens (e.g., phones in portrait mode) */
+@media (max-width: 480px) {
+    h1 {
+        font-size: 1.5rem; /* Even smaller font size for very small screens */
+    }
+
+    .project-card {
+        width: 100%; /* Make the cards full width */
+    }
+
+    .nav-buttons button {
+        font-size: 1.5rem; /* Increase the button size for easier interaction */
+    }
 }

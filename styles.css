@@ -28,117 +28,93 @@ p {
 .project-slider {
     position: relative;
     margin-top: 2rem;
-}
-
-.nucleus {
-    width: 150px;
-    height: 150px;
-    background-color: #ff6347;
-    border-radius: 50%;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+    width: 100%;
+    overflow: hidden;
 }
 
 .project-container {
-    position: relative;
     display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 50px;
-}
-
-.project-node {
-    margin: 0 2rem;
-    position: absolute;
-    transition: transform 0.3s ease;
-}
-
-.project-node:hover {
-    transform: scale(1.2);
+    transition: transform 0.3s ease-in-out;
 }
 
 .project-card {
     background-color: #fff;
-    padding: 1rem;
+    padding: 2rem;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     text-align: center;
-    width: 250px;
-    height: 150px;
-    margin-bottom: 20px;
+    min-width: 300px;
+    margin: 0 1rem;
+    transition: transform 0.3s ease;
 }
 
 .project-card h3 {
-    font-size: 1.2rem;
+    font-size: 1.5rem;
 }
 
-.project-container .project-node#project-1 {
-    top: 0;
-    left: 50%;
-    transform: translateX(-50%) translateY(-180px);
+.project-card p {
+    font-size: 1rem;
 }
 
-.project-container .project-node#project-1:hover .project-card {
-    background-color: #ff6347;
+.project-card a {
+    color: #333;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.nav-buttons {
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    transform: translateY(-50%);
+}
+
+.nav-buttons button {
+    background-color: rgba(0, 0, 0, 0.5);
     color: white;
-}
-
-footer {
-    background-color: #333;
-    color: white;
+    border: none;
     padding: 1rem;
-    margin-top: 2rem;
+    cursor: pointer;
+    font-size: 2rem;
+    transition: background-color 0.3s ease;
+}
+
+.nav-buttons button:hover {
+    background-color: rgba(0, 0, 0, 0.8);
 }
 
 /* Media Queries for Mobile Devices */
 @media (max-width: 768px) {
-    h1 {
-        font-size: 2rem; /* Smaller heading size for mobile */
-    }
-
-    p {
-        font-size: 1rem; /* Adjust paragraph size for better readability */
+    .project-card {
+        min-width: 90%; /* Increase card width on smaller screens */
+        margin: 1rem 0;
     }
 
     .project-slider {
-        height: auto; /* Remove fixed height for better adaptability */
+        margin-top: 1rem;
     }
 
-    .project-card {
-        width: 90%; /* Make cards take up more space on smaller screens */
-        margin-bottom: 10px;
-        height: auto; /* Allow height to adjust based on content */
-    }
-
-    .project-container {
-        flex-direction: column; /* Stack project nodes vertically on small screens */
-    }
-
-    .nucleus {
-        width: 120px;
-        height: 120px;
-    }
-
-    .project-node {
-        margin: 1rem 0; /* Reduce margin to fit content better */
-        transform: scale(1);
-    }
-}
-
-/* For extra small screens (e.g., phones in portrait mode) */
-@media (max-width: 480px) {
     h1 {
-        font-size: 1.5rem; /* Even smaller font size for very small screens */
-    }
-
-    .project-card {
-        width: 100%; /* Make the cards full width */
+        font-size: 2rem;
     }
 
     .nav-buttons button {
-        font-size: 1.5rem; /* Increase the button size for easier interaction */
+        font-size: 1.5rem; /* Smaller buttons for mobile */
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 1.5rem;
+    }
+
+    .project-card {
+        min-width: 100%; /* Full-width cards for very small screens */
+    }
+
+    .nav-buttons button {
+        font-size: 1.2rem;
     }
 }
